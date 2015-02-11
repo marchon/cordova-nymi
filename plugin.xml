@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.apache.cordova.device"
+    version="0.2.13">
+    <name>Device</name>
+    <description>Cordova Nymi Plugin</description>
+    <keywords>cordova,nymi</keywords>
+<!--     <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</repo>
+    <issue>https://issues.apache.org/jira/browse/CB/component/12320648</issue>
+ -->
+    <js-module src="www/device.js" name="device">
+        <clobbers target="device" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Device" >
+                <param name="android-package" value="org.apache.cordova.plugin.Plugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/libs/NCL.native.jar" target-dir="libs" />
+        <source-file src="src/android/libs/x86/lib_nymi_sdk.so" target-dir="libs/x86/" />
+        <source-file src="src/android/libs/x86_64/lib_nymi_sdk.so" target-dir="libs/x86_64/" />
+        <source-file src="src/android/libs/armeabi/lib_nymi_sdk.so" target-dir="libs/armeabi/" />
+        <source-file src="src/android/libs/arm64-v8a/lib_nymi_sdk.so" target-dir="libs/arm64-v8a/" />
+        <source-file src="src/android/libs/armeabi-v7a/lib_nymi_sdk.so" target-dir="libs/armeabi-v7a/" />
+        <source-file src="src/android/libs/mips/lib_nymi_sdk.so" target-dir="libs/mips/" />
+        <source-file src="src/android/libs/mips64/lib_nymi_sdk.so" target-dir="libs/mips64/" />
+
+        <source-file src="src/android/Plugin.java" target-dir="src/org/apache/cordova/device" />
+        <!-- <source-file src="src/android/NymiImplementation.java" target-dir="src/org/apache/cordova/device" /> -->
+
+    </platform>
+
+</plugin>
